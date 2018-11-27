@@ -4,3 +4,4 @@ export interface Solution {
     owner: string;
     duedate: string;
 }
+

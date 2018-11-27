@@ -1,1 +1,1 @@
-export * from "./solution.model";
+export * from './solution.model';

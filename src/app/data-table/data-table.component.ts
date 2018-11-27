@@ -17,7 +17,7 @@ export class DataTableComponent implements OnInit {
   ngOnInit() {
     this.solutionsService.getSolutions().subscribe(
       data => this.dataSource = data
-    )
+    );
   }
   onDeleteSolution(solution: Solution) {
     this.dataSource = this.dataSource.filter(h => h !== solution);
