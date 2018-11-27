@@ -9,7 +9,7 @@ import { Solution } from '../models';
 })
 export class DataTableComponent implements OnInit {
 
-  displayedColumns: string[] = ['name', 'owner', 'duedate'];
+  displayedColumns: string[] = ['name', 'owner', 'duedate', 'actions'];
   dataSource: Solution[] = [];
 
   constructor(private solutionsService: SolutionsService) { }

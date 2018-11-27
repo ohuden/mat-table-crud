@@ -8,6 +8,9 @@ import { DataTableComponent } from './data-table/data-table.component';
 import { SolutionsService } from './services/solutions.service';
 
 import { MatTableModule } from '@angular/material/table';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+
 import { HttpClientModule }    from '@angular/common/http';
 
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
@@ -22,6 +25,8 @@ import { InMemoryDataService }  from './services/in-memory-data.service';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatTableModule,
+    MatButtonModule,
+    MatIconModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
