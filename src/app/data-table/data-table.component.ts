@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SolutionsService } from '../services/solutions.service';
 import { Solution } from '../models';
+import { DialogService } from '../services/dialog.service';
 
 @Component({
   selector: 'app-data-table',
@@ -12,7 +13,8 @@ export class DataTableComponent implements OnInit {
   displayedColumns: string[] = ['name', 'owner', 'duedate', 'actions'];
   dataSource: Solution[] = [];
 
-  constructor(private solutionsService: SolutionsService) { }
+  constructor(private solutionsService: SolutionsService,
+              private dialogService: DialogService) { }
 
   ngOnInit() {
     this.solutionsService.getSolutions().subscribe(
@@ -20,7 +22,14 @@ export class DataTableComponent implements OnInit {
     );
   }
   onDeleteSolution(solution: Solution) {
-    this.dataSource = this.dataSource.filter(h => h !== solution);
-    this.solutionsService.deleteSolution(solution).subscribe();
+    this.dialogService.openConfirmDialog()
+    .afterClosed().subscribe(
+      res => {
+        if (res) {
+          this.dataSource = this.dataSource.filter(h => h !== solution);
+          this.solutionsService.deleteSolution(solution).subscribe();
+          console.log(solution.name + '! Deleted successfully');
+        }
+    });
   }
 }

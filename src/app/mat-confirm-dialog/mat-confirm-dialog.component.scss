@@ -1,0 +1,17 @@
+.confirm-dialog-container {
+    position: relative;
+}
+.content-container {
+    text-align: center;
+    padding: 40px 0;
+}
+#close-icon {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    cursor: pointer;
+}
+.btn-container {
+    display: flex;
+    justify-content: space-between;
+}
