@@ -19,5 +19,8 @@ export class DataTableComponent implements OnInit {
       data => this.dataSource = data
     )
   }
-
+  onDeleteSolution(solution: Solution) {
+    this.dataSource = this.dataSource.filter(h => h !== solution);
+    this.solutionsService.deleteSolution(solution).subscribe();
+  }
 }
